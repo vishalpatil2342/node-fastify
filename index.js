@@ -1,5 +1,12 @@
 const fastify = require("fastify")({logger:false});
 const PORT = 5000;
+fastify.register(require("fastify-swagger"),{
+  exposeRoute:true,
+  routePrefix:"/docs",
+  swagger:{
+    info:{title:"fastify-api"}
+  }
+});
 
 const users = [
   {id:1,name:"vishal",age:17},
